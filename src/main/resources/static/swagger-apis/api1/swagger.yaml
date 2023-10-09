@@ -1,0 +1,50 @@
+swagger: "2.0"
+info:
+  description: "This is a sample Swagger fro Graphql Implementation"
+  version: "1.0.0"
+  title: "API 1"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "apiteam@swagger.io"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "petstore.swagger.io"
+basePath: "/v2"
+tags:
+  - name: "Federation User Context API"
+    description: "Federation User Context API"
+    externalDocs:
+      description: "Find out more"
+      url: "http://swagger.io"
+schemes:
+  - "https"
+  - "http"
+paths:
+  /graphql:
+    post:
+      tags:
+        - "authorize"
+      summary: "authorize endpoint"
+      description: ""
+      operationId: ""
+      consumes:
+        - "application/json"
+        - "application/xml"
+      produces:
+        - "application/xml"
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: ""
+          required: true
+          schema:
+            $ref: "#/definitions/Pet"
+      responses:
+        200:
+          description: "Invalid input"
+      security:
+        - petstore_auth:
+            - "write:pets"
+            - "read:pets"
